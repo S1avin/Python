@@ -15,12 +15,15 @@ def overpay(h):#for overtime week
 
 def custpay():
     h = input("Hourse: " )
-    h = int(h)
-    if h == 50:
-        pay = regpay()
-    if h > 50:
-        pay = overpay(h)
-    else: pay = hpay(h)
+    try:                                        # if input has illigal format
+        h = int(h)
+        if h == 50:
+            pay = regpay()
+        if h > 50:
+            pay = overpay(h)
+        else: pay = hpay(h)
+    except: 
+        pay = "Invalid Input"
     return pay
 
 
