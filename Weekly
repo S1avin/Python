@@ -1,0 +1,38 @@
+def regpay():#regular week; useless
+    pay = 0
+    pay = 50 * 13
+    return pay
+
+def hpay(h):#less than full time-week
+    pay = 0
+    pay = h * 13
+    return pay
+
+def overpay(h):#for overtime week
+    pay = 0
+    pay = 50 * 13 + (h - 50) * 13 * 1.5
+    return pay
+
+def custpay():
+    h = input("Hourse: " )
+    try:                                        # if input has illigal format
+        h = int(h)
+        if h == 50:
+            pay = regpay()
+        if h > 50:
+            pay = overpay(h)
+        else: pay = hpay(h)
+    except: 
+        pay = "Invalid Input"
+    return pay
+
+
+pay = 0
+day = {"Mo":10, "Tu":10, "We":10, "Th":10, "Fr":10}
+
+q1 = input("Was it regular week Y/N >> ")
+if q1 == "Y" or q1 == "+" or q1 == "y":
+    pay = regpay()
+else: pay = custpay()
+
+print (pay)
